@@ -25,7 +25,8 @@
 		<intercept-url pattern="/JobTitle/ShowAllJobTitle" access="hasAnyRole('ROLE_ADMIN','ROLE_ASSISTANT','ROLE_HR')" />
 		<intercept-url pattern="/LineMapping/ShowAllLineMapping" access="hasAnyRole('ROLE_ADMIN','ROLE_LINEMAPPING')" />
 	    <intercept-url pattern="/ShowCheckOverTime15min" access="hasAnyRole('ROLE_ADMIN','ROLE_HR')" /> 
-	     <intercept-url pattern="/SwipeCard15min/ShowSwipeCard15min" access="hasAnyRole('ROLE_ADMIN','ROLE_HR')" /> 
+	     <intercept-url pattern="/SC15minReport/ShowSC15minReport" access="hasAnyRole('ROLE_ADMIN','ROLE_HR')" /> 
+	      <intercept-url pattern="/SwipeCardRateReport/ShowSCRateReport" access="hasAnyRole('ROLE_ADMIN','ROLE_HR')" />
 		<!-- access="hasRole('ROLE_USER','ROLE_ADMIN')"  -->
 
      <!--会话管理 -->   

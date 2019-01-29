@@ -14,18 +14,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.foxlink.realtime.model.SC15minReport;
-import com.foxlink.realtime.service.SC15minReportService;
+import com.foxlink.realtime.model.SCRateReport;
+import com.foxlink.realtime.service.SCRateReportService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
 @Controller
-@RequestMapping("/SC15minReport")
-public class SC15minReportController {
+@RequestMapping("/SwipeCardRateReport")
+public class SCRateReportController {
 	
-	private static Logger logger=Logger.getLogger(SC15minReportController.class);
-	private SC15minReportService sc15minReportService;
+	private static Logger logger=Logger.getLogger(SCRateReportController.class);
+	private SCRateReportService scRateReportService;
 	
 	@RequestMapping(value="/",method=RequestMethod.GET)
 	public ModelAndView showMainPage(HttpSession session){
@@ -36,23 +36,23 @@ public class SC15minReportController {
 	    return model;
 	}
 
-	@RequestMapping(value="/ShowSC15minReport",method=RequestMethod.GET)
-	public String ShowSwipeCard15min(){
-		return "SwipeCard15minReport";
+	@RequestMapping(value="/ShowSCRateReport",method=RequestMethod.GET)
+	public String ShowSwipeCardRate(){
+		return "SwipeCardRateReport";
 	}
 	
-	@RequestMapping(value = "/SearchSC15minReport.show", method = RequestMethod.POST,produces="Application/json;charset=utf-8")
-	public @ResponseBody String SearchSwipeCard15min(HttpSession session,@RequestParam("costId")String costId,@RequestParam("startDate")String startDate,@RequestParam("endDate")String endDate){
+	@RequestMapping(value = "/SearchSwipeCardRateReport.show", method = RequestMethod.POST,produces="Application/json;charset=utf-8")
+	public @ResponseBody String SearchSwipeCardRate(HttpSession session,@RequestParam("costId")String costId,@RequestParam("startDate")String startDate,@RequestParam("endDate")String endDate){
 		String jsonResults="";
 		try{
 			String userDataCostId=(String) session.getAttribute("userDataCostId");
 			if (userDataCostId != null && userDataCostId != "") {
 
 				ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-				sc15minReportService = (SC15minReportService) context.getBean("SC15minReportService");
+				scRateReportService = (SCRateReportService) context.getBean("SCRateReportService");
 				Gson gson = new GsonBuilder().serializeNulls().create();
 
-				List<SC15minReport> list = sc15minReportService.FindSearchSC15minReport(userDataCostId, costId,startDate, endDate);
+				List<SCRateReport> list = scRateReportService.FindSearchSCRateReport(userDataCostId, costId,startDate, endDate);
 				jsonResults = gson.toJson(list);
 			}
 			else{

@@ -10,7 +10,7 @@
 <c:url value="/resources/css/main.css" var="mainCSS"></c:url>
 <c:url value="/resources/css/plugins.css" var="pluginsCSS"></c:url>
 <c:url value="/resources/css/bootstrap/bootstrap.min.css" var="bootstrapCSS"></c:url>
-<c:url value="/resources/My97DatePicker/WdatePicker.js" var="WdatePicker"></c:url>
+<c:url value="/resources/assets/My97DatePicker/WdatePicker.js" var="WdatePicker"></c:url>
 <c:url value="/resources/js/jquery/jquery-1.11.3.min.js" var="jqueryJS"></c:url>
 <c:url value="/resources/js/Project/QueryEmpStatus.js?version=${resourceVersion}" var="QueryEmpStatusJS"></c:url>
 <c:url value="/resources/js/Project/jquery.table2excel.js" var="table2excelJS"></c:url>

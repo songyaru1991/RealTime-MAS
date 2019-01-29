@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 					http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
 					http://www.springframework.org/schema/mvc 
 					http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd 
 					http://www.springframework.org/schema/context 
-					http://www.springframework.org/schema/context/spring-context-4.0.xsd"
-	default-autowire="byName">
+					http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	           default-autowire="byName">
 
-<!--    <context:component-scan base-package="com.foxlink.realtime.*" /> -->
+  <!--   <context:component-scan base-package="com.foxlink.realtime.*" />  -->
+     <!-- 加载配置文件 -->
+	<context:property-placeholder location="classpath:db.properties" />
+	
    <!-- 實時工時連線資訊 -->   
    <!-- Oracle DB 連線資訊 -->
 	<bean id="OracleDataSource" class = "org.springframework.jdbc.datasource.DriverManagerDataSource">
-      	<property name = "driverClassName" value = "oracle.jdbc.driver.OracleDriver"/>
-      	<!-- <property name="url" value="jdbc:oracle:thin:@192.168.64.224:1521:rtodb" />
-		<property name="username" value="swipe" />
-		<property name="password" value="mis_realt" /> 
-		<property name="url" value="jdbc:oracle:thin:@192.168.144.187:1521:scard" />
-		<property name="username" value="swipe" />
-		<property name="password" value="mis_swipe" /> -->
-		<property name="url" value="jdbc:oracle:thin:@10.37.1.152:1521:SSGS" />
-		<property name="username" value="swipe" />
-		<property name="password" value="mis_realtime" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />	
     </bean>
     
 	 <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
@@ -176,5 +174,12 @@
 	</bean>
 	<bean id="SC15minReportService" class="com.foxlink.realtime.service.SC15minReportService">
 		<property name="SC15minReportDAO" ref="SC15minReportDAO" />
+	</bean>
+	
+	<bean id="SCRateReportDAO" class="com.foxlink.realtime.DAO.SCRateReportDAO"
+		parent="dAO">
+	</bean>
+	<bean id="SCRateReportService" class="com.foxlink.realtime.service.SCRateReportService">
+		<property name="SCRateReportDAO" ref="SCRateReportDAO" />
 	</bean>
 </beans>

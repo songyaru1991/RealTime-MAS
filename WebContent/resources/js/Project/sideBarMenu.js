@@ -55,7 +55,12 @@
 			"menus" : [ {
 				"menuname" : "刷卡超15分鐘&未超15分鐘報表",
 				"icon" : "icon-nav",
-				"url" : "SwipeCard15min/ShowSwipeCard15min"
+				"url" : "SC15minReport/ShowSC15minReport"
+			},
+			{
+				"menuname" : "刷卡人數統計報表",
+				"icon" : "icon-nav",
+				"url" : "SwipeCardRateReport/ShowSCRateReport"
 			}]
 		},
 		{

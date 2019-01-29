@@ -22,7 +22,7 @@
 <c:url value="/resources/assets/js/jquery-1.8.3.min.js"
 	var="assetsJqueryJS" />
 <c:url value="/resources/assets/My97DatePicker/WdatePicker.js" var="wdatePickerJS" />
-<c:url value="/resources/js/Project/Report.SwipeCard15min.js?version=${resourceVersion}" var="SwipeCard15minJS" />
+<c:url value="/resources/js/Project/Report.SwipeCardRate.js?version=${resourceVersion}" var="SwipeCardRateJS" />
 <c:url value="/resources/js/jquery/jquery-1.11.3.min.js" var="JqueryJS" />
 <c:url value="/resources/js/bootstrap/bootstrap.min.js" var="bootstrapJS" />
 <c:url value="/resources/js/TableExport/jquery.table2excel.min.js" var="tableExportJS" />
@@ -36,7 +36,7 @@
 <script src="${Common}" type="text/javascript"></script>
 <script src="${tableExportJS}" type="text/javascript"></script>
 <script type="text/javascript" src='${AjaxCheckSessionJS}'></script>
-<script src="${SwipeCard15minJS}" type="text/javascript"></script>
+<script src="${SwipeCardRateJS}" type="text/javascript"></script>
 <script src="${tableToExcel}" type="text/javascript"></script>
 <script src="${testTableExcel}" type="text/javascript"></script>
 
@@ -85,39 +85,30 @@
 				</div>
 				<div class="col-sm-12 col-sm-12" style="margin: 5px;">
 					<label for="startDate">開始日期:</label> 
-					<input id="startDate" class="Wdate" type="text" name="TimeStart" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-\#{%M-2}-01',maxDate:'#F{$dp.$D(\'endDate\')}'})" autocomplete="off" />
+					<input id="startDate" class="Wdate" type="text" name="TimeStart"  onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-\#{%M-2}-01',maxDate:'#F{$dp.$D(\'endDate\')}'})" autocomplete="off" />
 					<label for="endDate">結束日期:</label> 
 					 <input id="endDate" class="Wdate" type="text" name="TimeEnd" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'startDate\')}'})" autocomplete="off" /> 
 				</div>
 				
 				<div class="col-sm-12 col-sm-12" style="margin: 5px;">				   
-					<input type="button" id="searchSwipeCard15minBtn" name="searchSwipeCard15minBtn" class="btn btn-sm btn-primary" value="查詢">
+					<input type="button" id="searchSwipeCardRateBtn" name="searchSwipeCardRateBtn" class="btn btn-sm btn-primary" value="查詢">
 					<a href="#" class="easyui-linkbutton" id="exportExcel" data-options="iconCls:'icon-search'"></a>
-					<input type="button" onclick="javascript:SaveExcel('A2刷卡數據統計(超15分鐘&未超15分鐘)')" name="exportSwipeCard15minBtn" class="btn btn-sm btn-primary" value="導出">
+					<input type="button" onclick="javascript:SaveExcel('A2刷卡數據統計(超15分鐘&未超15分鐘)')" name="exportSwipeCardRateBtn" class="btn btn-sm btn-primary" value="導出">
 					<input type="button" id="resetBtn" name="resetBtn" class="btn btn-sm btn-primary" value="清空">
 				<div>
 					
 					<div class="panel-body" style="border: 1px solid #e1e3e6; width: 100%">
-						<table id="SwipeCard15minTable" class="table table-striped" style="text-align: center;">
+						<table id="SwipeCardRateTable" class="table table-striped" style="text-align: center;">
 							<thead>
 							  <tr>
-                                <th colspan="9" style="text-align: center; font:宋体 ; font-color:black; font-size:24px">A2刷卡數據統計(超15分鐘&未超15分鐘)</th>
+                                <th colspan="4" style="text-align: center; font:宋体 ; font-color:black; font-size:24px">A2刷卡數據統計</th>
                               </tr>
 								<tr>
-									<td rowspan="2" bgcolor="#D1EEEE" style="text-align: center; vertical-align:middle; font:宋体 ; font-size:18px">事業處</td>
-									<td  colspan="4" bgcolor="#FFFACD">上刷分類</td>
-									<td  colspan="4" bgcolor="#FFE7BA">下刷分類</td>
-								</tr>
-								<tr>
-									<td bgcolor="#FFFACD">未超</td>
-									<td bgcolor="#FFFACD">超15分鐘</td>
-									<td bgcolor="#FFFACD">總計</td>
-									<td bgcolor="#FFFACD">超工時比例(%)</td>
-									<td bgcolor="#FFE7BA">未超</td>
-									<td bgcolor="#FFE7BA">超15分鐘</td>
-									<td bgcolor="#FFE7BA">總計</td>
-									<td bgcolor="#FFE7BA">超工時比例(%)</td>
-								</tr>
+									<td bgcolor="#D1EEEE" style="text-align: center; vertical-align:middle; font:宋体 ; font-size:18px">事業處</td>
+									<td bgcolor="#FFE7BA">有刷卡人數</td>
+									<td bgcolor="#FFFACD">有上下刷人數</td>
+									<td bgcolor="#FFE7BA">有提報加班人數</td>
+								</tr>			
 							</thead>
 							<tbody></tbody>
 							

@@ -55,11 +55,11 @@ $(document).ready(function(){
 	});
 	
 	$('#searchSwipeCard15minBtn').click(function(){
-		SearchSwipeCard15min();		
+		SearchSC15minReport();		
 	});
 
 	
-	function SearchSwipeCard15min(){			
+	function SearchSC15minReport(){			
 		costId=$('#searchCostId').val();
 		startDate = $("#startDate").val();
 		endDate = $("#endDate").val();
@@ -76,7 +76,7 @@ $(document).ready(function(){
 		if(errorMessage==''){
 			$.ajax({
 				type:'POST',
-				url:'../SwipeCard15min/SearchSwipeCard15min.show',
+				url:'../SC15minReport/SearchSC15minReport.show',
 				data:{costId:costId,startDate:startDate,endDate:endDate},
 				error:function(e){
 					alert('找不到資料');
@@ -89,7 +89,7 @@ $(document).ready(function(){
 													alert(errorResponse);
 												} else {													
 													if (executeResult.length > 0)
-														ShowSearchSwipeCard15minTable(executeResult);
+														ShowSearchSC15minReportTable(executeResult);
 													else
 														alert('找不到資料');
 												}
@@ -104,7 +104,7 @@ $(document).ready(function(){
 		}
 	}
 	
-	function ShowSearchSwipeCard15minTable(executeResult){
+	function ShowSearchSC15minReportTable(executeResult){
 		var OndutySCNO15minCount=0,OndutySC15minCount=0,OndutySCSumCount=0,OffdutySCNO15minCount=0,OffdutySC15minCount=0,OffdutySCSumCount=0;
 		var	tableContents='';
 		for(var i=0;i<executeResult.length;i++){
