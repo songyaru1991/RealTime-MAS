@@ -8,6 +8,7 @@ private String name;
 private String depid;
 private String costid;
 private String WorkshopNo;
+private String Prod_line_code;
 private String emp_id;
 private String SwipeCardTime;
 private String SwipeCardTime2;
@@ -82,6 +83,12 @@ public String getSwipe_date() {
 }
 public void setSwipe_date(String swipe_date) {
 	this.swipe_date = swipe_date;
+}
+public String getProd_line_code() {
+	return Prod_line_code;
+}
+public void setProd_line_code(String prod_line_code) {
+	Prod_line_code = prod_line_code;
 }
 
 

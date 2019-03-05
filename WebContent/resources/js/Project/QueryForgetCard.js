@@ -129,9 +129,20 @@ $(document).ready(function () {
 				                				+ data[i].name + '</td>'
 				                				+ '<td style="mso-number-format:\'\@\';" ng-bind="data.paySerialNo">' + data[i].depid
 				                				+ '</td>' + '<td style="mso-number-format:\'\@\';" ng-bind="data.paySerialNo">'
-				                				+ data[i].costid + '</td>'
-				                				+ '<td style="mso-number-format:\'\@\';" ng-bind="data.paySerialNo">' + data[i].isonwork + '</td>'
-				                				+ '<td style="mso-number-format:\'\@\';" ng-bind="data.paySerialNo">' + data[i].fcDate
+				                				+ data[i].costid + '</td>';
+				                			 switch(data[i].isonwork){
+				         						case "0":
+				         							tableBodyElement+='<td>在職</td>';
+				         							break;
+				         						case "1":
+				         							tableBodyElement+='<td>離職</td>';
+				         							break;
+				         						default:	
+				         							tableBodyElement+='<td> </td>';
+				         							break;
+				         					}		
+				                				//+ '<td style="mso-number-format:\'\@\';" ng-bind="data.paySerialNo">' + data[i].isonwork + '</td>'
+				                			 tableBodyElement += '<td style="mso-number-format:\'\@\';" ng-bind="data.paySerialNo">' + data[i].fcDate
 				                				+ '</td></tr>';
 				                		}
 
@@ -296,9 +307,21 @@ $(document).ready(function () {
                     + queryResult[i].name + '</td>'
                     + '<td style="mso-number-format:\'\@\';" ng-bind="data.paySerialNo">' + queryResult[i].depid
                     + '</td>' + '<td style="mso-number-format:\'\@\';" ng-bind="data.paySerialNo">'
-                    + queryResult[i].costid + '</td>'
-                    + '<td style="mso-number-format:\'\@\';" ng-bind="data.paySerialNo">' + queryResult[i].isonwork + '</td>'
-                    + '<td style="mso-number-format:\'\@\';" ng-bind="data.paySerialNo">' + queryResult[i].fcDate
+                    + queryResult[i].costid + '</td>';
+                    switch(queryResult[i].isonwork){
+					case "0":
+						tableBodyElement+='<td>在職</td>';
+						break;
+					case "1":
+						tableBodyElement+='<td>離職</td>';
+						break;
+					default:	
+						tableBodyElement+='<td> </td>';
+						break;
+					}		
+                   // + '<td style="mso-number-format:\'\@\';" ng-bind="data.paySerialNo">' + queryResult[i].isonwork + '</td>'
+                    
+                    tableBodyElement += '<td style="mso-number-format:\'\@\';" ng-bind="data.paySerialNo">' + queryResult[i].fcDate
                     + '</td></tr>';
 			}
 

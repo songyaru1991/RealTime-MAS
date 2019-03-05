@@ -48,7 +48,7 @@ public class CheckSCDao extends DAO<QuerySwipeCard> {
 	@Override
 	public List<QuerySwipeCard> FindRecord(String userDataCostId,int currentPage, int totalRecord, QuerySwipeCard querySwipeCard) {
 		//String sql = " SELECT ID,NAME,depid ,costID ,SwipeCardTime ,SwipeCardTime2 ,WorkshopNo FROM (select a.*,rownum as rnum,COUNT (*) OVER () totalPage from (SELECT emp.ID,emp.NAME,emp.depid ,emp.costID ,cardtime.SwipeCardTime ,cardtime.SwipeCardTime2 ,cardtime.WorkshopNo from swipe.csr_employee emp, swipe.csr_swipecardtime cardtime WHERE emp.id = cardtime.emp_id ";
-		String sql = " SELECT ID,NAME,depid ,costID ,to_char(SwipeCardTime, 'yyyy-mm-dd hh24:mi:ss') SwipeCardTime ,to_char(SwipeCardTime2, 'yyyy-mm-dd hh24:mi:ss') SwipeCardTime2,WorkshopNo,swipe_date FROM (select a.*,rownum as rnum,COUNT (*) OVER () totalPage from (SELECT emp.ID,emp.NAME,emp.depid ,emp.costID ,cardtime.SwipeCardTime ,cardtime.SwipeCardTime2 ,cardtime.WorkshopNo,cardtime.swipe_date from swipe.csr_employee emp, swipe.csr_swipecardtime cardtime WHERE emp.id = cardtime.emp_id ";
+		String sql = " SELECT ID,NAME,depid ,costID ,to_char(SwipeCardTime, 'yyyy-mm-dd hh24:mi:ss') SwipeCardTime ,to_char(SwipeCardTime2, 'yyyy-mm-dd hh24:mi:ss') SwipeCardTime2,WorkshopNo,swipe_date,Prod_line_code FROM (select a.*,rownum as rnum,COUNT (*) OVER () totalPage from (SELECT emp.ID,emp.NAME,emp.depid ,emp.costID ,cardtime.SwipeCardTime ,cardtime.SwipeCardTime2 ,cardtime.WorkshopNo,cardtime.swipe_date,cardtime.Prod_line_code from swipe.csr_employee emp, swipe.csr_swipecardtime cardtime WHERE emp.id = cardtime.emp_id ";
 		List<QuerySwipeCard> querySwipeCards = null;
 		try {
 			List<Object> queryList = new ArrayList<Object>();
@@ -203,7 +203,7 @@ public class CheckSCDao extends DAO<QuerySwipeCard> {
 	// 查詢總記錄
 	public List<QuerySwipeCard> FindRecords(String userDataCostId,QuerySwipeCard querySwipeCard) {
 		//String sql = "SELECT emp.ID,emp.NAME,emp.depid ,emp.costID ,cardtime.SwipeCardTime ,cardtime.SwipeCardTime2 ,cardtime.WorkshopNo from swipe.csr_employee emp, swipe.csr_swipecardtime cardtime WHERE emp.id = cardtime.emp_id ";
-		String sql = "SELECT emp.ID,emp.NAME,emp.depid ,emp.costID ,to_char(cardtime.SwipeCardTime, 'yyyy-mm-dd hh24:mi:ss') SwipeCardTime ,to_char(cardtime.SwipeCardTime2, 'yyyy-mm-dd hh24:mi:ss') SwipeCardTime2   ,cardtime.WorkshopNo,cardtime.swipe_date from swipe.csr_employee emp, swipe.csr_swipecardtime cardtime WHERE emp.id = cardtime.emp_id ";
+		String sql = "SELECT emp.ID,emp.NAME,emp.depid ,emp.costID ,to_char(cardtime.SwipeCardTime, 'yyyy-mm-dd hh24:mi:ss') SwipeCardTime ,to_char(cardtime.SwipeCardTime2, 'yyyy-mm-dd hh24:mi:ss') SwipeCardTime2   ,cardtime.WorkshopNo,cardtime.swipe_date,cardtime.Prod_line_code from swipe.csr_employee emp, swipe.csr_swipecardtime cardtime WHERE emp.id = cardtime.emp_id ";
 		List<QuerySwipeCard> querySwipeCards = null;
 		try {
 			List<Object> queryList = new ArrayList<Object>();

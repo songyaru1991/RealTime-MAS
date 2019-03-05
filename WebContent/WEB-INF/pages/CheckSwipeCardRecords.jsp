@@ -99,10 +99,11 @@
 						<th>姓名</th>
 						<th>部門代碼</th>
 						<th>費用代碼</th>
-						<th>刷卡日期</th>
+						<th>上班日期</th>
 						<th>上班時間</th>
 						<th>下班時間</th>
 						<th>車間</th>
+						<th>線體</th>
 						<th></th>
 					</tr>
 				</thead>

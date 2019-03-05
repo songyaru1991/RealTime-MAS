@@ -114,6 +114,8 @@ $(document)
 																		+ data[i].SwipeCardTime2
 																		+ '</td>' + '<td style="mso-number-format:\'\@\';" ng-bind="data.paySerialNo">'
 																		+ data[i].WorkshopNo
+																		+ '</td>' + '<td style="mso-number-format:\'\@\';" ng-bind="data.paySerialNo">'
+																		+ data[i].Prod_line_code
 																		+ '</td></tr>';
 																}
 
@@ -437,6 +439,8 @@ $(document)
 										+ queryResult[i].SwipeCardTime2
 										+ '</td>' + '<td style="mso-number-format:\'\@\';" ng-bind="data.paySerialNo">'
 										+ queryResult[i].WorkshopNo
+										+ '</td>' + '<td style="mso-number-format:\'\@\';" ng-bind="data.paySerialNo">'
+										+ queryResult[i].Prod_line_code
 										+ '</td></tr>';
 							}
 
